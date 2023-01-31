@@ -1,0 +1,23 @@
+Order:
+<select ng-model="choice.singleSelect">
+    <option value="{{choice.date}}">Date</option>
+        <option value="{{choice.title}}">Title</option>
+    </select>
+<!-- <label>Only date</label> <input type="checkbox" id="checkbox" ng-model="checkBox"> -->
+<br>
+<label>Search title: </label><input type="text" ng-model="search">
+<br> List:
+<div ng-repeat="data in datas | filter:{title:search} | orderBy:choice.singleSelect">
+    <div ng-click="selected(data)">
+        Title: {{data.title}} <br> Date: {{data.date}}
+    </div>
+</div>
+<form name="addForm">
+    <label>Only date</label> <input type="checkbox" id="checkbox" ng-model="isChecked">
+    <label>New title: </label><input type="text" ng-model="newTitle">
+    <button ng-click="filterSort(newTitle, addForm)">добавить</button>
+</form>
+<!-- вывести список datas в порядке в зависимости от выбора в директиве -->
+<!-- посмотреть как взаимодействовать с другими директивами и как отобразить объект -->
+<some-2>
+</some-2>
